@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Register for DIT Library Service</title>
+<link href="registerPage.css" type="text/css" rel="stylesheet" >
+</head>
+
+<body>
+
+	<div id="container">
+    	<div id="pic">
+			<img src="logo.jpg" width="300" height="300" alt="DIT" class="displayed"/>
+            <i><h1>Register Below To Access Library Services</h1></i>
+        </div>
+        
+        <div id="register">
+			<form method="POST" action="regUser.php" name="register" > <!--onSubmit="return formValidation()">-->
+				<b>Username:</b>
+				<input type="text" name="username" id="user" class="uname" placeholder="Enter a Username.." required="required">
+				
+				<b>Password:</b>
+				<input type="password" name="password" id="pass" placeholder="Enter a Password.." required="required">
+                <br><br>
+                
+                <b>Full Name:</b>
+				<input type="text" name="name" id="user" class="user" placeholder="Enter Your Name.." required="required">
+				<br><br>
+				
+				<b>Address:</b>
+				<input type="text" name="address" size="50" id="address" placeholder="Enter Full Address.." required="required">
+				<br><br>
+				
+				<b>E-mail:</b>
+				<input type="email" name="email" id="email" class="uname" placeholder="Enter E-mail Address.." required="required">
+				
+				<b>Contact Number:</b>
+				<input type="tel" name="phone" id="phone" placeholder="Enter Phone No.." required="required">
+                <br><br>
+                
+                <input type="submit" id="submit" value="Register" class="log">
+			</form> 
+		</div>
+        
+    </div>
+
+</body>
+
+</html>
