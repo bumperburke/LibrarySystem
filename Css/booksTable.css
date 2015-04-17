@@ -1,0 +1,32 @@
+﻿#stats{
+	position:fixed;
+	left: 300px;
+    top: 210px;
+}
+
+table{
+/*border:1px solid black;*/
+width:300px;
+height:250px;
+}
+
+th, td{
+width:100px;
+/*border:1px solid black;*/
+}
+
+thead>tr{
+position:relative;
+display:block;
+background: linear-gradient(#003467, #0098CB);
+background: -moz-linear-gradient(#003467, #0098CB);
+background: -webkit-linear-gradient(#003467, #0098CB);
+color:#ffffff;
+}
+
+tbody{
+display:block;
+height:200px;
+overflow:scroll;
+overflow-x:hidden;
+}

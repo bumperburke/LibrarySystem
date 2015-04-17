@@ -1,0 +1,49 @@
+﻿table.search {
+    width: 55%; /* Optional */
+   	/* border-collapse: collapse; */
+    border-spacing: 0;
+    border: 2px solid black;
+    position: fixed;
+    left: 220px;
+    top: 220px;
+}
+
+table.search tbody
+{
+	display:block;
+	overflow:scroll;
+	overflow-x:hidden;
+}
+
+table.search thead 
+{ 
+	display: block;
+	position:relative;
+}
+
+thead tr th { 
+	background: linear-gradient(#003467, #0098CB);
+	background: -moz-linear-gradient(#003467, #0098CB);
+	background: -webkit-linear-gradient(#003467, #0098CB);
+	color:#ffffff;
+    height: 30px;
+    line-height: 30px;
+    /* text-align: left; */
+}
+
+table.tbody 
+{ 
+	border-top: 2px solid black;
+	display:block;
+	
+}
+
+tbody td, thead th {
+    width: 5%; /* Optional */
+    border-right: 1px solid black;
+    white-space: normal;
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
