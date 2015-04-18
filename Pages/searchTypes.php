@@ -14,13 +14,13 @@
 		//var_dump($result);
 					
 					
-		echo '<table class="search" border="3" id="search"><thead><tr><th>Cover</th><th>Title</th><th>Author</th><th>ISBN</th><th>Quantity</th><th>Checkout</th></tr></thead>';
+		echo '<table class="search" border="3" id="search"><thead><tr><th>Cover</th><th>Title</th><th>Author</th><th>ISBN</th><th>Quantity</th><th>Checkout</th></tr></thead><tbody>';
 		// output data of each row
 		while($row = mysqli_fetch_array($result))
 		{
 			$bookTitle = $row["title"];
 			//var_dump($bookTitle);
-		    echo '<tbody><tr><td> <img src="data:image/jpeg;base64,'.base64_encode($row["cover"]).'" width="70" height="60" /> </td>';
+		    echo '<tr><td> <img src="data:image/jpeg;base64,'.base64_encode($row["cover"]).'" width="70" height="60" /> </td>';
 		    echo '<td>'.$row["title"].'</td>';
 		    echo '<td>'.$row["author"].'</td>';
 		    echo '<td>'.$row["ISBN"].'</td>';
@@ -28,10 +28,10 @@
 		    echo '<td><form name="checkout" id="checkout" action="checkoutBook.php" method="GET">
 		    			<input type="hidden" name="book" value="'.$bookTitle.'">
 		    			<input type="text" name="userCheckout" form="checkout" size="20" placeholder="Enter Username....">
-	  						<input type="submit" value="Checkout"></form></td></tr></tbody>';
+	  						<input type="submit" value="Checkout"></form></td></tr>';
 		}
 			 
-		echo "</div></table>";
+		echo "</tbody></table>";
 	}
 	
  	function userSearch()
@@ -48,18 +48,18 @@
 		//var_dump($result);
 					
 					
-		echo '<table class="search" border="3" id="search"><thead><tr><th>Cover</th><th>Title</th><th>Author</th><th>ISBN</th><th>Quantity</th></tr></thead>';
+		echo '<table class="search" border="3" id="search"><thead><tr><th>Cover</th><th>Title</th><th>Author</th><th>ISBN</th><th>Quantity</th></tr></thead><tbody>';
 		// output data of each row
 		while($row = mysqli_fetch_array($result))
 		{
 			//var_dump($row);
-		    echo '<tbody><tr><td> <img src="data:image/jpeg;base64,'.base64_encode($row["cover"]).'" width="70" height="60" /> </td>';
+		    echo '<tr><td> <img src="data:image/jpeg;base64,'.base64_encode($row["cover"]).'" width="70" height="60" /> </td>';
 		    echo '<td>'.$row["title"].'</td>';
 		    echo '<td>'.$row["author"].'</td>';
 		    echo '<td>'.$row["ISBN"].'</td>';
-		    echo '<td>'.$row["quantity"].'</td></tr></tbody>';
+		    echo '<td>'.$row["quantity"].'</td></tr>';
 		}
 			 
-		echo "</div></table>"; 
+		echo "</tbody></table>"; 
  	}
 ?>

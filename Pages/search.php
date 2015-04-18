@@ -15,12 +15,19 @@ if( !isset($_SESSION['loggedInUser']) && !empty($_SESSION['loggedInUser']) )
 <link href="home.css" type="text/css" rel="stylesheet" />
 </head>
 <style type="text/css">
-@import url("searchTable.css");
+@import url("booksTable.css");
 #results{
 	position:fixed;
 	left: 300px;
     top: 110px;
 }
+
+table.search
+{
+	position:fixed;
+	top:220px;
+}
+
 
 checkout
 {

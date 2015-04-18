@@ -15,8 +15,33 @@ if( !isset($_SESSION['loggedInUser']) || empty($_SESSION['loggedInUser']) )
 </head>
 
 <style>
-#stats {
-	margin-top:30px;
+@import url("booksTable.css");
+#Table1 {
+	position:fixed;
+	left: 220px;
+    top: 210px;
+}
+
+.scrollit
+{
+	overflow:scroll;
+	height:100px;
+}
+
+#return{
+	position:fixed;
+	right: 350px;
+	top:50px;
+}
+
+caption
+{
+	font-size:15pt;
+	font-style:bold;
+}
+td
+{
+	font-size:13pt;
 }
 
 tr {
@@ -50,21 +75,30 @@ form {
                     <li><a href="">About</a></li>
                 </ul>
            	</div>
-            <div id="stats">
-            	<table style="width:70%">
-                  <tr>
-                    <th><u>Current Loans</u></th>
-                    <th><u>Recent History</u></th>		
-                    <th><u>New Books</u></th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </table>
-                
+            <div id="Table1">
+            	<?php
+            		include "homeTables.php";
+            		if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
+                	{
+            			librarianTableOverdue();
+            		}
+            		
+            		else
+            		{
+            			userTable();
+            		}
+            	?>
             </div>
+            <?php
+            	if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
+                {		
+	            	echo '<form class="return" id="return" name="return" action="returnBook.php" method="GET">
+	                	<legend>Return a Book</legend>
+	                	<input type="text" name="isbn" size="30" placeholder="Enter Book ISBN..."><br>
+	            		<input type="submit" value="Return Book">
+	            	</form>';
+	            }
+            ?>
             <form class="search" id="search" name="search" action="search.php" method="GET">
                 <input type="text" name="query" size="50" placeholder="Search Title/Author...">
             	<input type="submit" value="Search">
