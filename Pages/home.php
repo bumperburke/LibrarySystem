@@ -72,7 +72,7 @@ form {
                     ?>
                     <li><a href="books.php">Books</a></li>
                     <li><a href="">Contact</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="about.php">About</a></li>
                 </ul>
            	</div>
             <div id="Table1">

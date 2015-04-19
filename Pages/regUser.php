@@ -1,8 +1,9 @@
 <?php
-require_once "conn.php";
 
 function newUser()
 {
+	require "conn.php";
+
 	$uname = $_POST['username'];
 	$password = $_POST['password'];
 	$userLevel = 'u';
@@ -11,8 +12,7 @@ function newUser()
 	$email = $_POST['email'];
 	$phone = $_POST['phone'];
 	
-	$query = "INSERT INTO users (username, password, user_level, full_name, address, email, phone) VALUES ('$uname', '$password', '$userLevel', '$fullname', '$address', '$email', '$phone')";
-	$data = mysql_query($query) or die (mysql_error());
+	$data = mysqli_query($mysqli, "INSERT INTO users (username, password, user_level, full_name, address, email, phone) VALUES ('$uname', '$password', '$userLevel', '$fullname', '$address', '$email', '$phone')") or die (mysqli_error($mysqli));
 	
 	if($data)
 	{
@@ -23,18 +23,24 @@ function newUser()
 
 function SignUp()
 {
-	if(!empty($_POST['username']))
+	require "conn.php";
+	
+	$username = $_POST['username'];
+
+	if($username != NULL)
 	{
-		$query = mysql_query("SELECT * FROM users WHERE username = '$_POST[username]' AND password = '$_POST[password]'") or die(mysql_erroe());
 		
-		if(!$row = mysql_fetch_array($query) or die(mysql_error()))
+		$query = mysqli_query($mysqli, "SELECT * FROM users WHERE username = '{$username}'") or die(mysqli_error($mysqli));
+		
+		if(!$query)
 		{
 			newUser();
 		}
 		
 		else
 		{
-			echo "Sorry...Username Already Exists!";
+			echo '<h3 style="color:red">Sorry, Username Already Exists!</h3>';
+			header("refresh:2; url=register.html");
 		}
 	}
 }

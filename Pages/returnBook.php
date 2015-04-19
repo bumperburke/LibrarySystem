@@ -17,6 +17,7 @@
 	
 	else
 	{
-		header("refresh:0; url=home.php");
+		header("refresh:2; url=home.php");
+		echo '<h3 style="color:red">Invalid ISBN, Please Try Again.</h3>';
 	}
 ?>

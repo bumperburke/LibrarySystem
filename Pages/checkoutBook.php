@@ -15,7 +15,8 @@
 	
 	if($quantity < 1 || $resHist == $username)
 	{
-			header("refresh:0; url=search.php?query={$book}");
+			header("refresh:3; url=search.php?query={$book}");
+			echo '<h3 style="color:red">Sorry, Please Ensure You Have No Overdue Books and That Book Is In Stock!</h3>';
 	}
 	else
 	{
