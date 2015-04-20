@@ -146,9 +146,9 @@ form {
 
 <div class="img">
      <div class="img1" id="image-group">
-      <pa><img src="Conservatory.jpg" ></a></pa>
-	  <pa><img src="Exterior Kevin St-240x180.jpg" ></a></pa>
-	  <pa style="margin:0"><img src="bolton-st.jpg" ></a></pa>
+      <pa><img src="library1.jpg" ></a></pa>
+	  <pa><img src="library2.jpg" ></a></pa>
+	  <pa style="margin:0"><img src="library3.jpg" ></a></pa>
   </div>
  </div> 
 

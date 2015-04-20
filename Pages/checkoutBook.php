@@ -11,9 +11,10 @@
 	$quantity = (int) $row["quantity"];
 	
 	$checkHistory = mysqli_query($mysqli, "SELECT username FROM history WHERE username='{$username}' AND status='Overdue'");
-	$resHist = mysqli_fetch_object($checkHistory);
+	$resHist = mysqli_fetch_array($checkHistory);
+	$usernameDB = $resHist["username"];
 	
-	if($quantity < 1 || $resHist == $username)
+	if($quantity < 1 || $usernameDB == $username)
 	{
 			header("refresh:3; url=search.php?query={$book}");
 			echo '<h3 style="color:red">Sorry, Please Ensure You Have No Overdue Books and That Book Is In Stock!</h3>';

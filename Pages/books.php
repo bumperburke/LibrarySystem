@@ -16,10 +16,10 @@ if( !isset($_SESSION['loggedInUser']) && !empty($_SESSION['loggedInUser']) )
 <style>
 @import url("booksTable.css");
 
-tr {
+/*tr {
 	font-size:15pt;
 	font-style:bold;
-}
+}*/
 form {
 	margin-left:200px;
 	margin-top: 300px;
@@ -44,7 +44,7 @@ form {
                     ?>
                     <li class="active"><a href="books.php">Books</a></li>
                     <li><a href="">Contact</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="about.php">About</a></li>
                 </ul>
            	</div>
             <div id="stats">
