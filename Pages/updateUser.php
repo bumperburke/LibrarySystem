@@ -15,13 +15,11 @@ if( !isset($_SESSION['loggedInUser']) && !empty($_SESSION['loggedInUser']) )
 
 </head>
 <style>
-#contents {
-	margin-top:100px;
-}
 form {
 	margin-left:200px;
 	margin-top: 50px;
 }
+
 #form1{
 	position:absolute;
 	line-height:15px;
@@ -78,7 +76,7 @@ h3{
 							echo '</tr>';
 							echo '<tr>';
 							echo '<td align="right">Name:</td>';
-							echo '<td align="left"><input type="text" name="full_name" value="'.$row['full_name'].'""></td>';
+							echo '<td align="left"><input type="text" name="full_name" value="'.$row['full_name'].'"></td>';
 							echo '</tr>';
 							echo '<tr>';
 							echo '<td align="right">Address:</td>';
@@ -93,24 +91,21 @@ h3{
 							echo '<td align="left"><input type="text" name="phone" value="'.$row['phone'].'"></td>';
 							echo '</tr>';
 							echo '</table>';
-							echo'<input type="submit" value="Submit"/>';
+							echo'<input type="submit" value="Submit"/></form>';
 						}
 					?>
 			</div>
-			
-            <div id="contents">
-   	
-                <form id="search">
+		</div>	
+                <form class="search" id="search" name="search" action="search.php" method="GET">
                     <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
                     <input type="submit" value="Search">
-                </form> 
+                </form>
                 
                 <form method="post" action="logout.php" id="logout">
         			<input type="submit" value="Logout">
         		</form>               
             	
-        	</div>
-        </div>
+        <img src="dit.png" width="200" height="200" alt="DIT" class="displayed">
 	</div>
 </body>
 </html>

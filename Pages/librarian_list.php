@@ -80,15 +80,15 @@ form {
 				    		echo '<td>'.$row["phone"].'</td>';
 							if($_SESSION['userLevel'] == "a")
 							{
-								echo "<td><a href='updateUser.php?user_id=" . $row["user_id"] . "'> Update </a>";
-								echo "<a href='deleteUser.php?user_id=" . $row["user_id"] . "'> Delete </a></td></tr> ";
+								echo "<td><a href='updateLibrarian.php?user_id=" . $row["user_id"] . "'> Update </a>";
+								echo "<a href='deleteLibrarian.php?user_id=" . $row["user_id"] . "'> Delete </a></td></tr> ";
 							}
 						}
             		?>
             	</tbody>
             	</table>
             </div>
-                <form id="search">
+                <form class="search" id="search" name="search" action="search.php" method="GET">
                     <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
                     <input type="submit" value="Search">
                 </form> 

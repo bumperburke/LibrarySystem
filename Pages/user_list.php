@@ -88,7 +88,7 @@ form {
             	</tbody>
             	</table>
             </div>
-                <form id="search">
+                <form class="search" id="search" name="search" action="search.php" method="GET">
                     <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
                     <input type="submit" value="Search">
                 </form> 
