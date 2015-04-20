@@ -30,9 +30,11 @@ function SignUp()
 	if($username != NULL)
 	{
 		
-		$query = mysqli_query($mysqli, "SELECT * FROM users WHERE username = '{$username}'") or die(mysqli_error($mysqli));
+		$query = mysqli_query($mysqli, "SELECT username FROM users WHERE username = '{$username}'") or die(mysqli_error($mysqli));
+		$res = mysqli_fetch_array($query);
+		$usernameDB = $res["username"];
 		
-		if(!$query)
+		if($usernameDB != $username)
 		{
 			newUser();
 		}
