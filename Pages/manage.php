@@ -21,7 +21,6 @@ tr {
 	font-size:20pt;
 	font-style:bold;
 }
-
 td {
 	text-align:center;
 }
@@ -55,9 +54,9 @@ form {
                     <th><u>Books</u></th>
                   </tr>
                   <tr>
-                    <td><a href=""><img src="librarian.png" width="100" height="100" alt="Librarian Accounts"/></a></td>
-                    <td><a href=""><img src="user.png" width="100" height="100" alt="User Accounts"/></a></td>
-                    <td><a href=""><img src="bookIcon.png" width="100" height="100" alt="Book Accounts"/></a></td>
+                    <td><a href="librarian_list.php"><img src="librarian.png" width="100" height="100" alt="Librarian Accounts"/></a></td>
+                    <td><a href="user_list.php"><img src="user.png" width="100" height="100" alt="User Accounts"/></a></td>
+                    <td><a href="books.php"><img src="bookIcon.png" width="100" height="100" alt="Book Accounts"/></a></td>
                   </tr>
                 </table>
             	
