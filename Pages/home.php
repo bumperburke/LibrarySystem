@@ -101,9 +101,12 @@ form {
             		}
             	?>
             </div>
-                        
-            <button type="button" onclick="location.href='home2.php'">View Loans</button>
-                                    
+            <?php
+			if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
+            {           
+            	echo '<button type="button" onclick="location.href="home2.php">View Loans</button>';
+            }
+            ?>                        
             <?php
             	if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
                 {		

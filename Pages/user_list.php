@@ -78,11 +78,8 @@ form {
 				    		echo '<td>'.$row["address"].'</td>';
 				    		echo '<td>'.$row["email"].'</td>';
 				    		echo '<td>'.$row["phone"].'</td>';
-							if($_SESSION['userLevel'] == "a")
-							{
-								echo "<td><a href='updateUser.php?user_id=" . $row["user_id"] . "'> Update </a>";
-								echo "<a href='deleteUser.php?user_id=" . $row["user_id"] . "'> Delete </a></td></tr> ";
-							}
+							echo "<td><a href='updateUser.php?user_id=" . $row["user_id"] . "'> Update </a>";
+							echo "<a href='deleteUser.php?user_id=" . $row["user_id"] . "'> Delete </a></td></tr> ";
 						}
             		?>
             	</tbody>
