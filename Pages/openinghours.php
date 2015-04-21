@@ -120,11 +120,6 @@ h3{
 			
             <div id="contents">
    	
-                <form id="search">
-                    <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
-                    <input type="submit" value="Search">
-                </form> 
-                
                 <form method="post" action="logout.php" id="logout">
         			<input type="submit" value="Logout">
         		</form>               
