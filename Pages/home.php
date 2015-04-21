@@ -30,8 +30,8 @@ if( !isset($_SESSION['loggedInUser']) || empty($_SESSION['loggedInUser']) )
 
 #return{
 	position:fixed;
-	right: 350px;
-	top:50px;
+	right: 900px;
+	top:200px;
 }
 
 caption
