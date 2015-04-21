@@ -22,16 +22,10 @@ if( !isset($_SESSION['loggedInUser']) || empty($_SESSION['loggedInUser']) )
     top: 210px;
 }
 
-.scrollit
-{
-	overflow:scroll;
-	height:100px;
-}
-
 #return{
 	position:fixed;
-	right: 900px;
-	top:200px;
+	right: 400px;
+	top:0px;
 }
 
 caption
@@ -95,6 +89,7 @@ form {
 	            	echo '<form class="return" id="return" name="return" action="returnBook.php" method="GET">
 	                	<legend>Return a Book</legend>
 	                	<input type="text" name="isbn" size="30" placeholder="Enter Book ISBN..."><br>
+	                	<input type="text" name="user" size="30" placeholder="Enter Username..."><br>
 	            		<input type="submit" value="Return Book">
 	            	</form>';
 	            }

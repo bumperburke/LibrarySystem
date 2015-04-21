@@ -3,6 +3,7 @@
 	session_start();
 	
 	$isbn = mysqli_real_escape_string($mysqli, $_GET['isbn']);
+	$username = mysqli_real_escape_string($mysqli, $_GET['user']);
 	
 	
 	$isbnMatched = mysqli_query($mysqli, "SELECT isbn FROM books WHERE ISBN='{$isbn}'");
@@ -10,7 +11,7 @@
 	
 	if($matched["isbn"] == $isbn)
 	{	
-		$ammendHistory = mysqli_query($mysqli, "UPDATE history SET status='Returned', returned='Y' WHERE isbn='{$isbn}'");
+		$ammendHistory = mysqli_query($mysqli, "UPDATE history SET status='Returned', returned='Y' WHERE isbn='{$isbn}' AND username='{username}'");
 		$incrementQuantity = mysqli_query($mysqli, "UPDATE books SET quantity=quantity+1 WHERE ISBN='{$isbn}'");
 		header("refresh:0; url=home.php");
 	}
