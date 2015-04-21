@@ -13,19 +13,6 @@ if( !isset($_SESSION['loggedInUser']) || empty($_SESSION['loggedInUser']) )
 <title>DIT Kevin Street Library</title>
 <link href="home.css" type="text/css" rel="stylesheet">
 </head>
-<script type="text/javascript">
-function toggleTable()
-{
-     var elem=document.getElementById("Table1");
-     var hide = elem.style.display =="none";
-     if (hide) {
-         elem.style.display="block";
-    } 
-    else {
-       elem.style.display="none";
-    }
-}
-</script>
 <style>
 @import url("booksTable.css");
 #Table1 {
@@ -92,7 +79,7 @@ form {
             		include "homeTables.php";
             		if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
                 	{
-                		librarianTableOverdue();
+                		librarianBooksOut();
             		}
             		
             		else
@@ -102,7 +89,7 @@ form {
             	?>
             </div>
                         
-            <button type="button" onclick="location.href='home2.php'">View Loans</button>
+            <button type="button" onclick="location.href='home.php'">View Overdue</button>
                                     
             <?php
             	if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
