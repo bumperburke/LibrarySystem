@@ -30,8 +30,8 @@ if( !isset($_SESSION['loggedInUser']) || empty($_SESSION['loggedInUser']) )
 
 #return{
 	position:fixed;
-	right: 350px;
-	top:50px;
+	right: 900px;
+	top:200px;
 }
 
 caption
@@ -71,7 +71,7 @@ form {
                 		}
                     ?>
                     <li><a href="books.php">Books</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contactStaff.php">Contact</a></li>
                     <li><a href="about.php">About</a></li>
                 </ul>
            	</div>

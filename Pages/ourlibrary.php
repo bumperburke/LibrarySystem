@@ -138,7 +138,7 @@ form {
                 		}
                     ?>
                     <li><a href="books.php">Books</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contactStaff.php">Contact</a></li>
                     <li class="active"><a href="about.php">About</a></li>
                 </ul>
            	</div>

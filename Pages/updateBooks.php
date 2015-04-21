@@ -58,37 +58,49 @@ h3{
 			
 			<div id="form1">
 
-                   <h3>Edit User Details Below</h3>
+                   <h3>Edit Book Details Below</h3>
                     <?php 
 						require "conn.php";
 	
-						$id = $_GET['user_id'];
-						$sql = "SELECT * FROM users WHERE user_id LIKE '$id'";
+						$id = $_GET['book_id'];
+						$sql = "SELECT * FROM books WHERE book_id LIKE '$id'";
 						$result = mysqli_query($mysqli, $sql);
 						while($row = mysqli_fetch_array($result))
 						{
-							echo '<form method="get"  action="updateLibAct.php">';
-							echo '<input type="hidden" value="'.$row['user_id'].'" name="user_id">';
+							echo '<form method="get"  action="updateBooksAct.php">';
+							echo '<input type="hidden" value="'.$row['book_id'].'" name="book_id">';
 							echo '<table>';
 							echo '<tr>';
-							echo '<td align="right">User:</td>';
-							echo '<td align="left"><input type="text" name="username" value="'.$row['username'].'"></td>';
+							echo '<td align="right">ISBN:</td>';
+							echo '<td align="left"><input type="text" name="ISBN" value="'.$row['ISBN'].'"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Name:</td>';
-							echo '<td align="left"><input type="text" name="full_name" value="'.$row['full_name'].'""></td>';
+							echo '<td align="right">Title:</td>';
+							echo '<td align="left"><input type="text" name="title" value="'.$row['title'].'""></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Address:</td>';
-							echo '<td align="left"><input type="text" name="address" value="'.$row['address'].'"></td>';
+							echo '<td align="right">Author:</td>';
+							echo '<td align="left"><input type="text" name="author" value="'.$row['author'].'"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Email:</td>';
-							echo '<td align="left"><input type="text" name="email" value="'.$row['email'].'"></td>';
+							echo '<td align="right">Publish Date:</td>';
+							echo '<td align="left"><input type="text" name="publish_date" value="'.$row['publish_date'].'"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Phone:</td>';
-							echo '<td align="left"><input type="text" name="phone" value="'.$row['phone'].'"></td>';
+							echo '<td align="right">Publisher:</td>';
+							echo '<td align="left"><input type="text" name="publisher" value="'.$row['publisher'].'"></td>';
+							echo '</tr>';
+							echo '<tr>';
+							echo '<td align="right">Pages:</td>';
+							echo '<td align="left"><input type="text" name="pages" value="'.$row['pages'].'"></td>';
+							echo '</tr>';
+							echo '<tr>';
+							echo '<td align="right">Quantity:</td>';
+							echo '<td align="left"><input type="text" name="quantity" value="'.$row['quantity'].'"></td>';
+							echo '</tr>';
+							echo '<tr>';
+							echo '<td align="right">Date Added:</td>';
+							echo '<td align="left"><input type="text" name="date_added" value="'.$row['date_added'].'"></td>';
 							echo '</tr>';
 							echo '</table>';
 							echo'<input type="submit" value="Submit"/></form>';
