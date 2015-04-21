@@ -42,7 +42,7 @@ form {
                 		}
                     ?>
                     <li><a href="books.php">Books</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contactStaff.php">Contact</a></li>
                     <li><a href="about.php">About</a></li>
                 </ul>
            	</div>
@@ -88,7 +88,7 @@ form {
             	</tbody>
             	</table>
             </div>
-                <form id="search">
+                <form class="search" id="search" name="search" action="search.php" method="GET">
                     <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
                     <input type="submit" value="Search">
                 </form> 

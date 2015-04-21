@@ -11,12 +11,14 @@ if( !isset($_SESSION['loggedInUser']) && !empty($_SESSION['loggedInUser']) )
 <head>
 <meta charset="utf-8">
 <title>DIT Kevin Street Library</title>
-<link href="home.css" type="text/css" rel="stylesheet" />
+<link href="home.css" type="text/css" rel="stylesheet">
 
 </head>
 <style>
-#contents {
-	margin-top:100px;
+#search{
+	position:absolute;
+	bottom:70px;
+	right:500px;
 }
 
 #form1{
@@ -49,7 +51,7 @@ h3{
                 		}
                     ?>
                     <li><a href="books.php">Books</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contactStaff.php">Contact</a></li>
                     <li><a href="about.php">About</a></li>
                 </ul>
            	</div>
@@ -89,23 +91,20 @@ h3{
 							echo '<td align="left"><input type="text" name="phone" value="'.$row['phone'].'"></td>';
 							echo '</tr>';
 							echo '</table>';
-							echo'<input type="submit" value="Submit"/>';
+							echo'<input type="submit" value="Submit"/></form>';
 						}
 					?>
 			</div>
-			
-            <div id="contents">
-   	
-                <form id="search">
+			    <form class="search" id="search" name="search" action="search.php" method="GET">
                     <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
                     <input type="submit" value="Search">
                 </form> 
                 
                 <form method="post" action="logout.php" id="logout">
         			<input type="submit" value="Logout">
-        		</form>               
-            	
-        	</div>
+        		</form>
+        		
+			<img src="dit.png" width="200" height="200" alt="DIT" class="displayed">               
         </div>
 	</div>
 </body>

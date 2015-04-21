@@ -15,7 +15,6 @@ if( !isset($_SESSION['loggedInUser']) && !empty($_SESSION['loggedInUser']) )
 </head>
 <style>
 @import url("booksTable.css");
-
 /*tr {
 	font-size:15pt;
 	font-style:bold;
@@ -43,7 +42,7 @@ form {
                 		}
                     ?>
                     <li class="active"><a href="books.php">Books</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contactStaff.php">Contact</a></li>
                     <li><a href="about.php">About</a></li>
                 </ul>
            	</div>
@@ -64,6 +63,12 @@ form {
             			<th>Quantity</th>
             			<th>ISBN</th>
             			<th>Date Added</th>
+						<?php
+						if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
+                		{
+							echo '<th>Actions</th>';
+						}
+						?>
             		</tr>
             	</thead>
             	<tbody>
@@ -76,7 +81,12 @@ form {
 				    		echo '<td>'.$row["author"].'</td>';
 				    		echo '<td>'.$row["quantity"].'</td>';
 				    		echo '<td>'.$row["ISBN"].'</td>';
-				    		echo '<td>'.$row["date_added"].'</td></tr>';
+				    		echo '<td>'.$row["date_added"].'</td>';
+							if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
+							{
+								echo "<td><a href='updateBooks.php?book_id=" . $row["book_id"] . "'> Update </a>";
+								echo "<a href='deleteBook.php?book_id=" . $row["book_id"] . "'> Delete </a></td></tr> ";
+							}
 						}
             		?>
             	</tbody>

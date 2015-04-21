@@ -4,13 +4,14 @@
 	{
 		require "conn.php";
 		
-		$sql = "SELECT * FROM history WHERE date_due < SYSDATE() AND returned='N'" or die(mysqli_error($mysqli));
+		$sql = "SELECT * FROM history WHERE status='Overdue' AND returned='N'" or die(mysqli_error($mysqli));
 		$result = mysqli_query($mysqli, $sql);
-				
+		$todaysDate = date("Y-m-d");
+		
 		echo '<table border="1"><caption>Books Overdue</caption><thead><tr><th>Username</th><th>Book</th><th>ISBN</th><th>Status</th><th>Recieved</th><th>Due</th><th>Returned</th></tr></thead><tbody>';
 		while($row = mysqli_fetch_array($result))
 		{
-			if($row["date_due"] >= $row["date"])
+			if($todaysDate > $row["date_due"] && $row["status"] != "Overdue")
 			{
 				mysqli_query($mysqli, "UPDATE history SET status='Overdue'");
 			}
@@ -35,11 +36,12 @@
 		
 		$sql = "SELECT * FROM history WHERE username='{$user}'" or die(mysqli_error($mysqli));
 		$result = mysqli_query($mysqli, $sql);
-				
+		$todaysDate = date("Y-m-d");
+		
 		echo '<table border="1"><caption>My History</caption><thead><tr><th>Book</th><th>ISBN</th><th>Status</th><th>Recieved</th><th>Due</th><th>Returned</th></tr></thead><tbody>';
 		while($row = mysqli_fetch_array($result))
 		{
-			if($row["date_due"] >= $row["date"])
+			if($todaysDate > $row["date_due"] && $row["status"] != "Overdue")
 			{
 				mysqli_query($mysqli, "UPDATE history SET status='Overdue'");
 			}
