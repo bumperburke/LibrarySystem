@@ -11,13 +11,14 @@ if( !isset($_SESSION['loggedInUser']) && !empty($_SESSION['loggedInUser']) )
 <head>
 <meta charset="utf-8">
 <title>DIT Kevin Street Library</title>
-<link href="home.css" type="text/css" rel="stylesheet" />
+<link href="home.css" type="text/css" rel="stylesheet">
 
 </head>
 <style>
-form {
-	margin-left:200px;
-	margin-top: 50px;
+#search{
+	position:absolute;
+	bottom:70px;
+	right:500px;
 }
 
 #form1{
@@ -31,7 +32,6 @@ form {
 h3{
     text-align: center;
 }
-
 </style>
 <body>
 	<div id="container">
@@ -58,54 +58,58 @@ h3{
 			
 			<div id="form1">
 
-                   <h3>Edit User Details Below</h3>
+                   <h3>Add Book Details Below</h3>
                     <?php 
-						require "conn.php";
-	
-						$id = $_GET['user_id'];
-						$sql = "SELECT * FROM users WHERE user_id LIKE '$id'";
-						$result = mysqli_query($mysqli, $sql);
-						while($row = mysqli_fetch_array($result))
-						{
-							echo '<form method="get"  action="updateUserAct.php">';
-							echo '<input type="hidden" value="'.$row['user_id'].'" name="user_id">';
+							echo '<form method="get"  action="addBookAct.php">';
+							echo '<input type="hidden" name="book_id">';
 							echo '<table>';
 							echo '<tr>';
-							echo '<td align="right">User:</td>';
-							echo '<td align="left"><input type="text" name="username" value="'.$row['username'].'"></td>';
+							echo '<td align="right">ISBN:</td>';
+							echo '<td align="left"><input type="text" name="ISBN"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Name:</td>';
-							echo '<td align="left"><input type="text" name="full_name" value="'.$row['full_name'].'"></td>';
+							echo '<td align="right">Title:</td>';
+							echo '<td align="left"><input type="text" name="title"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Address:</td>';
-							echo '<td align="left"><input type="text" name="address" value="'.$row['address'].'"></td>';
+							echo '<td align="right">Author:</td>';
+							echo '<td align="left"><input type="text" name="author"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Email:</td>';
-							echo '<td align="left"><input type="text" name="email" value="'.$row['email'].'"></td>';
+							echo '<td align="right">Publish Date:</td>';
+							echo '<td align="left"><input type="text" name="publish_date"></td>';
 							echo '</tr>';
 							echo '<tr>';
-							echo '<td align="right">Phone:</td>';
-							echo '<td align="left"><input type="text" name="phone" value="'.$row['phone'].'"></td>';
+							echo '<td align="right">Publisher:</td>';
+							echo '<td align="left"><input type="text" name="publisher"></td>';
+							echo '</tr>';
+							echo '<tr>';
+							echo '<td align="right">Pages:</td>';
+							echo '<td align="left"><input type="text" name="pages"></td>';
+							echo '</tr>';
+							echo '<tr>';
+							echo '<td align="right">Quantity:</td>';
+							echo '<td align="left"><input type="text" name="quantity"></td>';
+							echo '</tr>';
+							echo '<tr>';
+							echo '<td align="right">Date Added:</td>';
+							echo '<td align="left"><input type="text" name="date_added"></td>';
 							echo '</tr>';
 							echo '</table>';
 							echo'<input type="submit" value="Submit"/></form>';
-						}
 					?>
 			</div>
-		</div>	
-                <form class="search" id="search" name="search" action="search.php" method="GET">
+			    <form class="search" id="search" name="search" action="search.php" method="GET">
                     <input type="text" name="search" size="50" placeholder="Enter Search Term Here....">
                     <input type="submit" value="Search">
-                </form>
+                </form> 
                 
                 <form method="post" action="logout.php" id="logout">
         			<input type="submit" value="Logout">
-        		</form>               
-            	
-        <img src="dit.png" width="200" height="200" alt="DIT" class="displayed">
+        		</form>
+        		
+			<img src="dit.png" width="200" height="200" alt="DIT" class="displayed">               
+        </div>
 	</div>
 </body>
 </html>

@@ -49,41 +49,27 @@ form {
             <div id="stats">
             <?php
 				require "conn.php";
-		
-				$sql = "SELECT user_id, username, password, full_name, address, email, phone FROM users WHERE user_level LIKE 'l'";
+				$id = $_GET['username'];
+				$sql = "SELECT * FROM data_log WHERE user LIKE '$id'";
 				$result = mysqli_query($mysqli, $sql);
 			?>
             	<table border="2">
             	<thead>
             		<tr>
+            			<th>Action</th>
             			<th>User</th>
-            			<th>Name</th>
-            			<th>Address</th>
-            			<th>E-mail</th>
-            			<th>Phone</th>
-						<?php
-						if($_SESSION['userLevel'] == "a")
-                		{
-							echo '<th>Actions</th>';
-						}
-						?>
+            			<th>Timestamp</th>
+            			<th>Details</th>
             		</tr>
             	</thead>
             	<tbody>
             		<?php
             			while($row = mysqli_fetch_array($result))
 						{
-							echo '<tr><td>'.$row["username"].'</td>';
-				    		echo '<td>'.$row["full_name"].'</td>';
-				    		echo '<td>'.$row["address"].'</td>';
-				    		echo '<td>'.$row["email"].'</td>';
-				    		echo '<td>'.$row["phone"].'</td>';
-							if($_SESSION['userLevel'] == "a")
-							{
-								echo "<td><a href='updateLibrarian.php?user_id=" . $row["user_id"] . "'> Update </a>";
-								echo "<a href='deleteLibrarian.php?user_id=" . $row["user_id"] . "'> Delete </a> ";
-								echo "<a href='logLibrarian.php?username=" . $row["username"] . "'> Log </a></td></tr>";
-							}
+							echo '<tr><td>'.$row["action"].'</td>';
+				    		echo '<td>'.$row["user"].'</td>';
+				    		echo '<td>'.$row["timestamp"].'</td>';
+				    		echo '<td>'.$row["details"].'</td></tr>';
 						}
             		?>
             	</tbody>

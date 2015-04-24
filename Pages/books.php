@@ -90,8 +90,15 @@ form {
 						}
             		?>
             	</tbody>
-            	</table>
+            	</table>   
             </div>
+						<?php
+			if($_SESSION['userLevel'] == "a" || $_SESSION['userLevel'] == "l")
+            {           
+            	echo'<form method="post" action="addBook.php" id="addBook">';
+        		echo'<input type="submit" value="Add Book"></form>';
+            }
+            ?> 
             <form class="search" id="search" name="search" action="search.php" method="GET">
                 <input type="text" name="query" size="50" placeholder="Search Title/Author...">
             	<input type="submit" value="Search">
